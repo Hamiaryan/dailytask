@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+<form action="/tasks/add" method="POST">
+  <fieldset>
+    <label for="description">Task Description:</label>
+    <input type="text" name="description" id="description" required />
+  </fieldset>
+  
+  <fieldset>
+    <label for="deadline">Deadline:</label>
+    <input type="date" name="deadline" id="deadline" required />
+  </fieldset>
+
+  <fieldset>
+    <label for="client">Client:</label>
+    <select name="client" id="client" required>
+      {{#each clients}}
+        <option value="{{this._id}}">{{this.firstName}} {{this.lastName}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+
+  <button type="submit" class="btn btn-primary">Add Task</button>
+</form>

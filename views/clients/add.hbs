@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<form action="/clients/add" method="POST">
+  <fieldset>
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" id="firstName" required />
+  </fieldset>
+  
+  <fieldset>
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" id="lastName" required />
+  </fieldset>
+
+  <fieldset>
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone" id="phone" required />
+  </fieldset>
+
+  <button type="submit" class="btn btn-primary">Add Client</button>
+</form>

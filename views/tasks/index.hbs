@@ -1,0 +1,36 @@
+<h1>{{title}}</h1>
+
+<a href="/tasks/add" class="btn btn-primary">Add New Task</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Client</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tasks}}
+      <tr>
+        <td>{{this.description}}</td>
+        <td>{{toShortDate this.deadline}}</td>
+        <td>{{this.client.firstName}} {{this.client.lastName}}</td>
+        <td>
+          {{#if this.completed}}
+            <span class="badge bg-success">Yes</span>
+          {{else}}
+            <form action="/tasks/complete/{{this._id}}" method="post" style="display:inline;">
+              <button class="btn btn-outline-primary">Mark as Completed</button>
+            </form>
+          {{/if}}
+        </td>
+        <td>
+          <a href="/tasks/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
